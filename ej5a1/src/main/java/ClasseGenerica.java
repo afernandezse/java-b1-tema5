@@ -66,35 +66,47 @@ public class ClasseGenerica<T> {
     // TODO: Initialize the list in the constructor
     public ClasseGenerica() {
         // elements = ...
+        this.elements = new ArrayList<>();
     }
 
     // TODO: Add the given element to the list
     public void addElement(T element) {
         // ...
+        elements.add(element);
     }
 
     // TODO: Return the first element in the list, or null if the list is empty
     public T getFirstElement() {
         // ...
-        
+        if (elements.isEmpty()){
+            return null;
+        }else{
+            return elements.get(0);
+        }   
     }
 
     // TODO: Return the last element in the list, or null if the list is empty
     public T getLastElement() {
         // ...
+        if (elements.isEmpty()){
+            return null;
+        }else{
+            return elements.get(elements.size()-1);
+        }
         
     }
 
     // TODO: Return the number of elements in the list
     public int getTotalElements() {
         // ...
+        return elements.size();
     
     }
 
     // -------------------------------------------------------------
     // Manual test using IDE
     // -------------------------------------------------------------
-    /*
+    
     public static void main(String[] args) {
         ClasseGenerica<String> texts = new ClasseGenerica<>();
         texts.addElement("Hello");
@@ -112,7 +124,7 @@ public class ClasseGenerica<T> {
         System.out.println(numbers.getLastElement());   // 200
         System.out.println(numbers.getTotalElements()); // 2
     }
-	*/
+	
 	// Torna a comentar aquest main quan vulguis executar els tests amb maven test
     // Vuelve a comentar este main cuando quieras ejecutar los tests con:
     // mvn test

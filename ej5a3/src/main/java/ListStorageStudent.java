@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -92,40 +93,47 @@ import java.util.List;
  */
 
 
-public class ListStorage<T> implements Storable<T> {
+public class ListStorageStudent<T> implements Storable<T> {
 
     private List<T> items;
 
     public ListStorageStudent() {
         // TODO: initialize internal list
+        this.items = new ArrayList<>();
     }
 
     @Override
     public void save(T item) {
         // TODO: store item
+        items.add(item);
     }
 
     @Override
     public T get(int index) {
         // TODO: return item by index
+        return items.get(index);
         
     }
 
     @Override
     public List<T> getAll() {
         // TODO: return all items
+        return Collections.unmodifiableList(items);
         
     }
 
     @Override
     public int count() {
         // TODO: return number of items
+        return items.size();
         
     }
 
     @Override
     public void clear() {
         // TODO: remove all stored items
+        items.clear();
+        System.out.println("All items in List removed");
     }
 
     public static class CV {
@@ -189,7 +197,7 @@ public class ListStorage<T> implements Storable<T> {
     // -------------------------------------------------------------
     // Manual test using IDE
     // -------------------------------------------------------------
-    /*
+    
     public static void main(String[] args) {
         Storable<CV> cvStorage = new ListStorageStudent<>();
         cvStorage.save(new CV("Ana Pérez", "ana@example.com", "Computer engineer..."));
@@ -206,7 +214,7 @@ public class ListStorage<T> implements Storable<T> {
         certStorage.save(new Certificate("Java Backend", 2022, "Oracle"));
         System.out.println(certStorage.getAll());
     }
-   */
+   
 	// Torna a comentar aquest main quan vulguis executar els tests amb maven test
     // Vuelve a comentar este main cuando quieras ejecutar los tests con:
     // mvn test
